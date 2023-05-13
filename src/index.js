@@ -5,7 +5,7 @@ const express = require('express');
 //so we need to create a server outside of express 
 //as express does it behind the scenes and we dont have access to it
 const socketio = require('socket.io');
-const {generateMessage} = require('./utils/messages');
+const {generateMessage,generateLocationMessage} = require('./utils/messages');
 
 
 const app = express();
@@ -28,7 +28,7 @@ io.on('connection',(socket)=>{
         io.emit('message',generateMessage(message));
     })
     socket.on('sendLocation',(coords)=>{
-        io.emit('message',`https://google.com/maps?q=${coords.latitude},${coords.longitude}`);
+        io.emit('message',generateLocationMessage(`https://google.com/maps?q=${coords.latitude},${coords.longitude}`));
     })
 
     socket.on('disconnect',()=>{

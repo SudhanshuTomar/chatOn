@@ -4,33 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
+    <title>ChatOn</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    
 </head>
 <body>
-    Chat App
-    <div id="messages">
+    <div class = "chat">
+        <div class="chat__sidebar">
 
-    </div>
-
-
-    <form id="message-form">
-        <input type="text" id="username" placeholder="Enter username">
-        <input type="text" id="message" placeholder="Enter message">
-        <input type="button" id="send" value="Send">
-    </form>
-    <button id="send-location">Send Location</button>
-    <div id="messages"></div>
+        </div>
+        <div class="chat__main">
+            <div id="messages" class="chat__messages"></div>
+            <div class="compose">
+                <form id="message-form">
+                    <input type="text" id="username" placeholder="Enter username">
+                    <input type="text" id="message" placeholder="Enter message">
+                    <input type="button" id="send" value="Send">
+                </form>
+                <button id="send-location">Send Location</button>
+            </div>
+            
+            
+        </div>
+    </div>  
+  
     <script id="message-template" type="text/html">
-        <div>
+        <div class="message">
             <p>
-                <strong>Username</strong>
-                <span>time</span>
+                <span class="message__name">Username</span>
+                <span class="message__meta">time</span>
             </p>
             <p>{{Message}}</p>    
         </div>
     </script>
     <script id="location-message-template">
-        <div>
+        <div class="message">
+            <p>
+                <span class="message__name">Username</span>
+                <span class="message__meta">time</span>
+            </p>
             <p><a href="{{url}}" target="_blank">My current location</a></p>    
         </div>
     </script>
